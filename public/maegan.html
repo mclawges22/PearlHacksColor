@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>Favorite Color</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="my-color">My Color</div>
+    <div id="similar-color">Closest Color to My Color</div>
+    <div id="complimentary-color">Complimentary Color</div>
+  <script src="util.js"></script>
+  <script>
+    var myColor = "6699ff";
+    var userColors = ['a345f9', '52de71', '065fd4', '252afa', 'ff0000'];
+    var similarColor = getClosestColor(myColor, userColors);
+    var complimentaryColor = getComplimentaryColor(myColor, userColors);
+    document.getElementById('my-color').style.backgroundColor = '#' + myColor;
+    document.getElementById('similar-color').style.backgroundColor = '#' + similarColor;
+    document.getElementById('complimentary-color').style.backgroundColor = '#' + complimentaryColor;
+  </script>
+  </body>
+</html>
