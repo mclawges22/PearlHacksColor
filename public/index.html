@@ -1,9 +1,11 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Favorite Colors</title>
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>Favorite Color</title>
+
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/5.8.2/firebase-app.js"></script>
@@ -16,25 +18,38 @@
 
     <!-- my local javascript files -->
     <script src="firebase_config.js"></script>
-    <script src="controller.js"></script>
+    <script src="util.js"></script>
 
-    <style media="screen">
-      .hidden {
-        display: none;
-      }
-      body {
-        font-size: 20pt;
-        font-family: arial;
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="starter_mod.css" />
+    <script src="starter_mod.js"></script>
+
   </head>
-  <body onLoad="onLoad()">
-    <button id="login" onclick="login()">Login</button>
+  <body onload="loadColors()">
     <div id="username"></div>
     <button id="logout" onclick="logout()" class="hidden">Logout</button>
-    <h3>Favorite Colors</h3>
-    <div id="favoriteColors">
-    </div>
-    <button id="saveColor" onclick="saveColor()" class="hidden">Save my favorite color</button>
+    <button id="login" onclick="login()">Login</button>
+
+    <section id="color-input-wrapper">
+      <input type="color" value="#6699ff" onchange="updateColor(this)">
+      <h2 class="button-text">explore colors</h2>
+    </section>
+
+    <section id="button-wrapper">
+      <h4 id="save-button" class="left-button button-text" onclick="saveColor()">
+        save your color
+      </h4>
+      <h4 id="login" class="hidden right-button button-text" onclick="saveColor()">
+        save your color
+      </h4>
+      <h4 id="find-button" class="button-text" onclick="findComplimentaryColor()">
+        find complimentary color
+      </h4>
+    </section>
+
+    <section id="color-list-wrapper">
+      <h2>Everyone's colors</h2>
+      <div id="color-list-wrapper-children"></div>
+    </section>
   </body>
 </html>

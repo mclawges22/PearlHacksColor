@@ -19,8 +19,16 @@ var getClosestColor = function(yourColor, colorList) {
   return closestColor;
 };
 
+function rgbToHex(rgb){
+ rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+ return (rgb && rgb.length === 4) ?
+  ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+}
+
 // yourColor is a hex color. 6 digits 0-9 and A-F. Do not include #.
-// colorList is an array of hex colors.
+// colorList is an array of hex colors. 
 var getComplimentaryColor = function(yourColor, colorList) {
   var yourRgb = hexToRgb(yourColor);
   var yourHsv = rgbToHsv(yourRgb[0], yourRgb[1], yourRgb[2]);
