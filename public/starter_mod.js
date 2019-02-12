@@ -20,7 +20,7 @@ var loadColors = function() {
      </div>     */
   firebase.database().ref("users").on("value", function(users){
     var colorNode, colorSwatch, label, colorValue;
-    var colorListWrapper = document.getElementById('color-list-wrapper-children');
+    var colorListWrapper = document.getElementById('color-list');
     colorListWrapper.innerHTML = "";
 
     for(var uid in users.val()) {

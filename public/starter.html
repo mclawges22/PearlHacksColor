@@ -13,6 +13,15 @@
   </head>
   <body onload="loadColors()">
 
+    <header>
+      <h1>Pearl Hacks Color</h1>
+      <div class="right">
+        <p id="username">Maegan</p>
+        <button id="logout" onclick="logout()" class="hidden">Logout</button>
+        <button id="login" onclick="login()">Login</button>
+      </div>
+    </header>
+
     <section id="color-input-wrapper">
       <input type="color" value="#6699ff" onchange="updateColor(this)">
       <h2 class="button-text">click to add your favorite color</h2>
@@ -29,7 +38,7 @@
 
     <section id="color-list-wrapper">
       <h2>Everyone's colors</h2>
-      <div id="color-list-wrapper-children">
+      <div id="color-list">
       </div>
     </section>
   </body>

@@ -4,7 +4,7 @@ var loadColors = function() {
        <div class="swatch"></div>
        <p>#0066FF</p>
      </div>     */
-  var colorListWrapper = document.getElementById('color-list-wrapper');
+  var colorListWrapper = document.getElementById('color-list');
   var colorNode, colorSwatch, label, colorValue;
   for (color in fakeData) {
     colorNode = document.createElement("DIV");
@@ -24,10 +24,26 @@ var loadColors = function() {
   }
 };
 
+var login = function() {
+  // fake call to database.
+  console.log('logging in');
+  document.getElementById('login').classList.add('hidden');
+  document.getElementById('logout').classList.remove('hidden');
+};
+
+var logout = function() {
+  // fake call to database.
+  console.log('logging out');
+  document.getElementById('login').classList.remove('hidden');
+  document.getElementById('logout').classList.add('hidden');
+};
+
 var updateColor = function(el) {
   // Show the color on the page.
   document.getElementById('color-input-wrapper').style.backgroundColor = el.value;
   document.getElementById('button-wrapper').style.backgroundColor = el.value;
+  document.getElementById('login').style.color = el.value;
+  document.getElementById('logout').style.color = el.value;
 };
 
 var saveColor = function() {
